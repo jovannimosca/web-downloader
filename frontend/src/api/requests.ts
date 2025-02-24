@@ -1,8 +1,11 @@
 import axios from "axios";
 import { FileRequest, StatusRequest } from "../types/api";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const client = axios.create({
-   baseURL: "http://127.0.0.1:8080/",
+   baseURL: `http://${process.env.HOST || "127.0.0.1"}:8080/`,
 });
 
 export function postDownload(data: FileRequest) {
