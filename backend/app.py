@@ -15,6 +15,8 @@ origins = [
    "http://localhost:3000",
    "http://localhost:5173",
 ]
+if env.get("CORS_ORIGIN"):
+   origins.append(env.get("CORS_ORIGIN"))
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
