@@ -6,8 +6,8 @@ frontend_dir="${pkg_dir}/frontend"
 
 # Install application-wide dependencies
 echo "Installing application-wide dependencies..."
-sudo apt-get update -y
-sudo apt-get install -y python3 python3-pip python3-venv nodejs npm apache2
+apt-get update -y
+apt-get install -y python3 python3-pip python3-venv nodejs npm apache2
 
 # Install backend dependencies
 echo "Installing backend dependencies..."

@@ -13,4 +13,4 @@ uvicorn app:app --host 0.0.0.0 --port 8080 --workers 4
 # Start the frontend
 echo "Starting the frontend..."
 cd $frontend_dir
-sudo systemctl start apache2
+systemctl start apache2
