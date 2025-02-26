@@ -9,7 +9,11 @@ frontend_dir="${pkg_dir}/frontend"
 # Start the frontend
 echo "Starting the frontend..."
 cd $frontend_dir
-systemctl start apache2
+if systemctl is-active --quiet apache2; then
+    echo "Frontend is already running."
+else
+    systemctl start apache2
+fi
 
 # Start the backend
 echo "Starting the backend..."
