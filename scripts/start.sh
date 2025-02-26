@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-PID_FILE = "/tmp/web-downloader.pid"
+PID_FILE="/tmp/web-downloader.pid"
 pkg_dir=$(git rev-parse --show-toplevel)
 backend_dir="${pkg_dir}/backend"
 frontend_dir="${pkg_dir}/frontend"

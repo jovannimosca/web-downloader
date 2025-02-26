@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PID_FILE = "/tmp/web-downloader.pid"
+PID_FILE="/tmp/web-downloader.pid"
 
 if [[ ! -f $PID_FILE ]]; then
    echo "Web downloader is not running!"
@@ -8,6 +8,6 @@ if [[ ! -f $PID_FILE ]]; then
 fi
 
 PID=$(cat $PID_FILE)
-kill -9 $PID
+kill -2 $PID
 rm $PID_FILE
 echo "Web downloader stopped"
