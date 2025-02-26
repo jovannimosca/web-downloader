@@ -6,6 +6,11 @@ pkg_dir=$(git rev-parse --show-toplevel)
 backend_dir="${pkg_dir}/backend"
 frontend_dir="${pkg_dir}/frontend"
 
+if [[ -f $PID_FILE ]]; then
+    echo "Web downloader is already running with PID: $(cat $PID_FILE)"
+    exit 1
+fi
+
 # Start the frontend
 echo "Starting the frontend..."
 cd $frontend_dir
