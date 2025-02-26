@@ -4,10 +4,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from models.file import FileRequest
 from downloader import Downloader
+from pathlib import Path
 from os import environ as env
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="../.env")
+load_dotenv(dotenv_path=(Path(__file__).parent.parent / ".env"))
 
 origins = [
    "http://localhost",
@@ -15,9 +16,10 @@ origins = [
    "http://localhost:3000",
    "http://localhost:5173",
 ]
-if env.get("HOST"):
+if env.get("WEB_HOST"):
    origins.append(f'http://{env.get("WEB_HOST")}')
    origins.append(f'https://{env.get("WEB_HOST")}')
+print(origins)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
