@@ -1,23 +1,27 @@
 import requests, logging, threading, queue, psycopg2
-from dotenv import load_dotenv
-from os import environ as env
 from datetime import datetime
 from pathlib import Path
 from models.file import FileResponse, File, StatusResponse
 from typing import Optional
 
-load_dotenv()
-
 class Downloader:
-   def __init__(self, downloads_dir: str, num_workers: int = 2):
+   def __init__(
+      self,
+      downloads_dir: str,
+      num_workers: int = 2,
+      database_name: str = "postgres",
+      database_user: str = "postgres",
+      database_password: str = "",
+      database_host: str = "localhost",
+   ):
       self._logger = logging.getLogger('uvicorn.error')
       self.dir: Path = Path(downloads_dir)
       # Connect to database:
       self._db = psycopg2.connect(
-         dbname=env.get("DATABASE_NAME", "postgres"),
-         user=env.get("DATABASE_USER", "postgres"),
-         password=env.get("DATABASE_PASSWORD", ""),
-         host=env.get("DATABASE_HOST", "localhost"),
+         dbname=database_name,
+         user=database_user,
+         password=database_password,
+         host=database_host,
       )
       self._init_database()
       # Initialize job queueing:

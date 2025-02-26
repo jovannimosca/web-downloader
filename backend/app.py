@@ -5,10 +5,9 @@ from contextlib import asynccontextmanager
 from models.file import FileRequest
 from downloader import Downloader
 from os import environ as env
-from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=(Path(__file__).parent / ".env"))
+load_dotenv(dotenv_path="../.env")
 
 origins = [
    "http://localhost",
@@ -23,7 +22,13 @@ if env.get("HOST"):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
    global downloader
-   downloader = Downloader(downloads_dir=env.get("DOWNLOADS_DIR", "~/Downloads"))
+   downloader = Downloader(
+      downloads_dir=env.get("DOWNLOADS_DIR", "~/Downloads"),
+      database_host=env.get("DATABASE_HOST", "localhost"),
+      database_name=env.get("DATABASE_NAME", "postgres"),
+      database_user=env.get("DATABASE_USER", "postgres"),
+      database_password=env.get("DATABASE_PASSWORD", ""),
+   )
    yield
    downloader.close()
 
