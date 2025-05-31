@@ -112,7 +112,7 @@ export default function DataTable() {
    }, [paginationModel]);
 
    return (
-      <Paper sx={{ height: 400, width: "100%" }}>
+      <Paper variant="outlined" sx={{ height: 400, width: "100%" }}>
          <DataGrid
             rows={rows}
             columns={columns}
