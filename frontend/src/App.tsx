@@ -5,14 +5,14 @@ import StatusTable from "./components/StatusTable";
 const queryClient = new QueryClient();
 
 function App() {
-   return (
-      <>
-         <QueryClientProvider client={queryClient}>
-            <DownloadForm />
-            <StatusTable />
-         </QueryClientProvider>
-      </>
-   );
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <DownloadForm />
+        <StatusTable />
+      </QueryClientProvider>
+    </>
+  );
 }
 
 export default App;
