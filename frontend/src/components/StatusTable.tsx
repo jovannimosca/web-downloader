@@ -112,27 +112,27 @@ export default function StatusTable() {
     handleFetch();
   }, [paginationModel]);
 
-  return (
-    <Paper sx={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pagination
-        paginationModel={paginationModel as GridPaginationModel}
-        paginationMode="server"
-        onPaginationModelChange={setPaginationModel}
-        onRowSelectionModelChange={(newRowSelectionModel) => {
-          setRowSelectionModel(newRowSelectionModel);
-        }}
-        rowSelectionModel={rowSelectionModel}
-        loading={loading}
-        keepNonExistentRowsSelected
-        rowCount={rowCount}
-        onRowCountChange={(newRowCount) => setRowCount(newRowCount)}
-        pageSizeOptions={[5, 10, 20]}
-        checkboxSelection
-        sx={{ border: 0 }}
-      />
-    </Paper>
-  );
+   return (
+      <Paper variant="outlined" sx={{ height: 400, width: "100%" }}>
+         <DataGrid
+            rows={rows}
+            columns={columns}
+            pagination
+            paginationModel={paginationModel as GridPaginationModel}
+            paginationMode="server"
+            onPaginationModelChange={setPaginationModel}
+            onRowSelectionModelChange={(newRowSelectionModel) => {
+               setRowSelectionModel(newRowSelectionModel);
+            }}
+            rowSelectionModel={rowSelectionModel}
+            loading={loading}
+            keepNonExistentRowsSelected
+            rowCount={rowCount}
+            onRowCountChange={(newRowCount) => setRowCount(newRowCount)}
+            pageSizeOptions={[5, 10, 20]}
+            checkboxSelection
+            sx={{ border: 0 }}
+         />
+      </Paper>
+   );
 }
