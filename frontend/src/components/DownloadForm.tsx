@@ -2,6 +2,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import DownloadIcon from "@mui/icons-material/Download";
 import { FileRequest } from "../types/api";
 import { postDownload } from "../api/requests";
 
@@ -25,8 +26,8 @@ export default function DownloadForm() {
             display: "flex",
             flexDirection: "row",
             gap: "1rem",
-            maxWidth: "500px",
-            margin: "50px auto",
+            // maxWidth: "500px",
+            // margin: "50px auto",
          }}
       >
          <Controller
@@ -34,10 +35,10 @@ export default function DownloadForm() {
             control={control}
             rules={{ required: true }}
             render={({ field }) => (
-               <TextField id="url" label="URL" fullWidth {...field} />
+               <TextField id="url" label="URL" {...field} />
             )}
          />
-         <Button type="submit" variant="outlined">
+         <Button type="submit" variant="outlined" endIcon={<DownloadIcon />}>
             Download
          </Button>
       </Box>
