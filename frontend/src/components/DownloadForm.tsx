@@ -7,16 +7,15 @@ import { FileRequest } from "../types/api";
 import { postDownload } from "../api/requests";
 
 export default function DownloadForm() {
-   const { handleSubmit, control, reset } = useForm<FileRequest>({
-      defaultValues: {
-         url: "",
-      },
-   });
-   const onSubmit: SubmitHandler<FileRequest> = (data) => {
-      console.log(data);
-      postDownload(data);
-      reset();
-   };
+  const { handleSubmit, control, reset } = useForm<FileRequest>({
+    defaultValues: {
+      url: "",
+    },
+  });
+  const onSubmit: SubmitHandler<FileRequest> = (data) => {
+    postDownload(data);
+    reset();
+  };
 
    return (
       <Box
@@ -26,8 +25,7 @@ export default function DownloadForm() {
             display: "flex",
             flexDirection: "row",
             gap: "1rem",
-            // maxWidth: "500px",
-            // margin: "50px auto",
+            maxWidth: "500px",
          }}
       >
          <Controller

@@ -1,25 +1,29 @@
 export type FileRequest = {
-   url: string;
-   filename?: string;
+  url: string;
+  filename?: string;
+};
+
+export type FileResponse = {
+  filename: string;
 };
 
 export type StatusRequest = {
-   page?: number;
-   pageSize?: number;
+  page?: number;
+  pageSize?: number;
 };
 
 export type StatusResponse = {
-   page: number;
-   pageSize: number;
-   rowCount: number;
-   data: File[];
+  page: number;
+  pageSize: number;
+  rowCount: number;
+  data: File[];
 };
 
 export type File = {
-   id: string;
-   timestamp: string;
-   filename: string;
-   url: string;
-   status: string;
-   seconds_elapsed: number;
+  id: string;
+  timestamp: string;
+  filename: string;
+  url: string;
+  status: string;
+  seconds_elapsed: number;
 };
